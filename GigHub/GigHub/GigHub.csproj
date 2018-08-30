@@ -217,6 +217,14 @@
     <Compile Include="Migrations\201808301446529_PopulateGenresTable.Designer.cs">
       <DependentUpon>201808301446529_PopulateGenresTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808301808065_AddForiegnKeyPropertiesToGig.cs" />
+    <Compile Include="Migrations\201808301808065_AddForiegnKeyPropertiesToGig.Designer.cs">
+      <DependentUpon>201808301808065_AddForiegnKeyPropertiesToGig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808301821042_AddForiegnKeyPropertiesToGig1.cs" />
+    <Compile Include="Migrations\201808301821042_AddForiegnKeyPropertiesToGig1.Designer.cs">
+      <DependentUpon>201808301821042_AddForiegnKeyPropertiesToGig1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -317,6 +325,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808301446529_PopulateGenresTable.resx">
       <DependentUpon>201808301446529_PopulateGenresTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808301808065_AddForiegnKeyPropertiesToGig.resx">
+      <DependentUpon>201808301808065_AddForiegnKeyPropertiesToGig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808301821042_AddForiegnKeyPropertiesToGig1.resx">
+      <DependentUpon>201808301821042_AddForiegnKeyPropertiesToGig1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
