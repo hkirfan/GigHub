@@ -1,8 +1,7 @@
 namespace GigHub.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class AddForiegnKeyPropertiesToGig : DbMigration
     {
         public override void Up()
@@ -12,7 +11,7 @@ namespace GigHub.Migrations
             RenameIndex(table: "dbo.Gigs", name: "IX_Artist_Id", newName: "IX_ArtistId");
             RenameIndex(table: "dbo.Gigs", name: "IX_Genre_Id", newName: "IX_GenreId");
         }
-        
+
         public override void Down()
         {
             RenameIndex(table: "dbo.Gigs", name: "IX_GenreId", newName: "IX_Genre_Id");
