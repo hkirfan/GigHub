@@ -123,6 +123,7 @@ body, .popover, .tooltip {
 .gigs > li .details .artist {
     font-weight: bold;
     display: block;
+    width: 150px;
 }
 .gigs > li .details .genre {
     font-size: 15px;
