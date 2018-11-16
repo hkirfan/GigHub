@@ -1,0 +1,14 @@
+﻿@model GigHub.Controllers.FollowViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<h1>@Model.Heading</h1>
+<ul class="gigs voffset4">
+    @foreach (var artist in Model.Followees)
+    {
+        <li>
+            @artist.Name                
+        </li>
+    }
+</ul>

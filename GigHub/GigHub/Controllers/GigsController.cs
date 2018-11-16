@@ -22,8 +22,8 @@ namespace GigHub.Controllers
             var gigs = _context.Attendances
                 .Where(a => a.AttendeeId == userId)
                 .Select(a => a.Gig)
-                .Include(g=>g.Artist)
-                .Include(g=>g.Genre)
+                .Include(g => g.Artist)
+                .Include(g => g.Genre)
                 .ToList();
             var viewModel = new GigsViewModel
             {
@@ -31,7 +31,7 @@ namespace GigHub.Controllers
                 ShowActions = User.Identity.IsAuthenticated,
                 Heading = "Gigs I'm Attending"
             };
-            return View("Gigs",viewModel);
+            return View("Gigs", viewModel);
         }
 
         [Authorize]
