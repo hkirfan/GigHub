@@ -74,6 +74,7 @@ body, .popover, .tooltip {
 
 .form-control {
     font-size: 17px;
+    height: 44px;
     -ms-border-radius: 9px;
     border-radius: 9px;
 }
@@ -134,4 +135,13 @@ body, .popover, .tooltip {
 }
 .gigs > li .details .genre {
     font-size: 15px;
+}
+
+.gigs > li .details .actions {
+    font-size: 15px;
+    display: none;
+}
+
+.gigs > li:hover .details .actions {
+    display: block;
 }
