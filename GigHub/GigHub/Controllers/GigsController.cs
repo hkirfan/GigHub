@@ -17,16 +17,21 @@ namespace GigHub.Controllers
             _context = new ApplicationDbContext();
         }
 
+        [Authorize]
         public ActionResult Mine()
         {
             var userId = User.Identity.GetUserId();
             var gigs = _context.Gigs
-                .Where(g => g.ArtistId == userId && g.DateTime > DateTime.Now)
+                .Where(g =>
+                    g.ArtistId == userId &&
+                    g.DateTime > DateTime.Now &&
+                    !g.IsCanceled)
                 .Include(g => g.Genre)
                 .ToList();
             return View(gigs);
         }
 
+        [Authorize]
         public ActionResult Attending()
         {
             var userId = User.Identity.GetUserId();
@@ -73,7 +78,7 @@ namespace GigHub.Controllers
                 Venue = gig.Venue
             };
 
-            return View("GigForm",viewModel);
+            return View("GigForm", viewModel);
         }
 
         [Authorize]
@@ -116,7 +121,7 @@ namespace GigHub.Controllers
             gig.Venue = viewModel.Venue;
             gig.DateTime = viewModel.GetDateTime();
             gig.GenreId = viewModel.Genre;
-            
+
             _context.SaveChanges();
 
             return RedirectToAction("Mine", "Gigs");
