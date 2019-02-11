@@ -50,6 +50,12 @@ namespace GigHub.Controllers
             return View("Gigs", viewModel);
         }
 
+        [HttpPost]
+        public ActionResult Search(GigsViewModel viewModel)
+        {
+            return RedirectToAction("Index", "Home", new { query = viewModel.SearchTerm });
+        }
+
         [Authorize]
         public ActionResult Create()
         {
@@ -120,11 +126,12 @@ namespace GigHub.Controllers
             var gig = _context.Gigs
                 .Include(g => g.Attendances.Select(a => a.Attendee))
                 .Single(g => g.Id == viewModel.Id && g.ArtistId == userId);
-            
+
             gig.Update(viewModel);
             _context.SaveChanges();
 
             return RedirectToAction("Mine", "Gigs");
         }
+
     }
 }

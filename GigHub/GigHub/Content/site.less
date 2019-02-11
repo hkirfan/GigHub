@@ -142,6 +142,8 @@ span.field-validation-error {
     height: 44px;
     -ms-border-radius: 9px;
     border-radius: 9px;
+    transition: none;
+    -webkit-transition: none;
 
     &:focus {
         border-color: @border_color_2;
@@ -240,5 +242,13 @@ span.field-validation-error {
         .highlight {
             font-weight: bold;
         }
+    }
+}
+
+#searchGigs {
+    width: 300px;
+
+    input {
+        max-width: none;
     }
 }
