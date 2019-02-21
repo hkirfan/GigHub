@@ -38,8 +38,7 @@ namespace GigHub.Controllers
                 Heading = "Upcoming Gigs",
                 SearchTerm = query
             };
-
-
+            
             return View("Gigs", viewModel);
         }
 
