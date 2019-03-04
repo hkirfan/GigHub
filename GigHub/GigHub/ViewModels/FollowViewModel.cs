@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using GigHub.Models;
 
-namespace GigHub.Controllers
+namespace GigHub.ViewModels
 {
     public class FollowViewModel
     {
