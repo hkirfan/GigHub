@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Web.Http;
 using AutoMapper;
-using GigHub.Dtos;
-using GigHub.Models;
-using GigHub.Persistence;
+using GigHub.Core;
+using GigHub.Core.Dtos;
+using GigHub.Core.Models;
 using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
 
@@ -13,18 +13,16 @@ namespace GigHub.Controllers.Api
     [Authorize]
     public class NotificationsController : ApiController
     {
-        private readonly ApplicationDbContext _context;
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public NotificationsController()
+        public NotificationsController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
-            _unitOfWork = new UnitOfWork(_context);
+            _unitOfWork = unitOfWork;
         }
         public IEnumerable<NotificationDto> GetNotifications()
         {
             var userId = User.Identity.GetUserId();
-            var notifications = _unitOfWork.UserNotifications.GetNotifications(userId);
+            var notifications = _unitOfWork.Notifications.GetNewNotificationsFor(userId);
 
             return notifications.Select(Mapper.Map<Notification, NotificationDto>);
         }
@@ -35,7 +33,7 @@ namespace GigHub.Controllers.Api
             var userId = User.Identity.GetUserId();
             var notifications = _unitOfWork.UserNotifications.GetUserNotifications(userId);
             notifications.ForEach(n => n.Read());
-            _context.SaveChanges();
+            _unitOfWork.Complete();
             return Ok();
         }
     }

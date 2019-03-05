@@ -1,26 +1,23 @@
 ﻿using System.Web.Mvc;
-using GigHub.Models;
-using GigHub.Persistence;
-using GigHub.ViewModels;
+using GigHub.Core;
+using GigHub.Core.ViewModels;
 using Microsoft.AspNet.Identity;
 
 namespace GigHub.Controllers
 {
     public class FollowController : Controller
     {
-        private readonly ApplicationDbContext _context;
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public FollowController()
+        public FollowController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
-            _unitOfWork = new UnitOfWork(_context);
+            _unitOfWork = unitOfWork;
         }
 
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();
-            var followees = _unitOfWork.Followings.GetFollowingArtists(userId);
+            var followees = _unitOfWork.Users.GetArtistsFollowedBy(userId);
             var viewModel = new FollowViewModel
             {
                 Followees = followees,
