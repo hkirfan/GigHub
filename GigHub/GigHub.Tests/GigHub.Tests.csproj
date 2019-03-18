@@ -89,6 +89,7 @@
     <Compile Include="Domain\Models\NotificationTests.cs" />
     <Compile Include="Extensions\ApiControllerExtensions.cs" />
     <Compile Include="Extensions\AttendancesControllerTests.cs" />
+    <Compile Include="Persistence\Repositories\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
