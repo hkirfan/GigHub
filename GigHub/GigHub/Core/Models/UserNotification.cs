@@ -1,6 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GigHub.Core.Models
 {
@@ -20,6 +18,11 @@ namespace GigHub.Core.Models
         {
             User = user ?? throw new ArgumentException("user cannot be null.");
             Notification = notification ?? throw new ArgumentException("notification cannot be null.");
+
+            User = user;
+            UserId = user.Id;
+            Notification = notification;
+            NotificationId = notification.Id;
         }
 
         protected UserNotification()

@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System.Web.Http.Results;
+using FluentAssertions;
 using GigHub.Controllers.Api;
 using GigHub.Core;
 using GigHub.Core.Dtos;
@@ -7,7 +8,6 @@ using GigHub.Core.Repositories;
 using GigHub.Tests.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System.Web.Http.Results;
 
 namespace GigHub.Tests.Controllers.Api
 {

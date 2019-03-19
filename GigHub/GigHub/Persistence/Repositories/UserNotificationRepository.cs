@@ -15,7 +15,7 @@ namespace GigHub.Persistence.Repositories
             _context = context;
         }
 
-        public IEnumerable<UserNotification> GetUserNotifications(string userId)
+        public IEnumerable<UserNotification> GetUserNotificationsFor(string userId)
         {
             return _context.UserNotifications
                 .Where(un => un.UserId == userId && !un.IsRead)

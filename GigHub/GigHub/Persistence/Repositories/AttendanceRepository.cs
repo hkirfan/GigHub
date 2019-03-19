@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using GigHub.Core.Models;
 using GigHub.Core.Repositories;
@@ -17,13 +18,13 @@ namespace GigHub.Persistence.Repositories
         public IEnumerable<Attendance> GetFutureAttendances(string userId)
         {
             return _context.Attendances
-                .Where(a => a.AttendeeId == userId)
+                .Where(a => a.AttendeeId == userId && a.Gig.DateTime > DateTime.Now)
                 .ToList();
         }
 
         public Attendance GetAttendance(string userId, int gigId)
         {
-            return _context.Attendances.FirstOrDefault(a => a.AttendeeId == userId && a.GigId == gigId);
+            return _context.Attendances.SingleOrDefault(a => a.AttendeeId == userId && a.GigId == gigId);
         }
 
         public void Add(Attendance attendance)
