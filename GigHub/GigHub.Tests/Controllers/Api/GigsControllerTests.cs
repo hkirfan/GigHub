@@ -1,6 +1,4 @@
-﻿using System.Security.Claims;
-using System.Security.Principal;
-using System.Web.Http.Results;
+﻿using System.Web.Http.Results;
 using FluentAssertions;
 using GigHub.Controllers.Api;
 using GigHub.Core;

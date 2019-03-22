@@ -1,10 +1,8 @@
-using GigHub.Persistence;
+using System.Data.Entity.Migrations;
 
-namespace GigHub.Migrations
+namespace GigHub.Persistence.Migrations
 {
-    using System.Data.Entity.Migrations;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()
         {
@@ -12,7 +10,7 @@ namespace GigHub.Migrations
             MigrationsDirectory = @"Persistence\Migrations";
         }
 
-        protected override void Seed(ApplicationDbContext context)
+        protected override void Seed(GigHub.Persistence.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

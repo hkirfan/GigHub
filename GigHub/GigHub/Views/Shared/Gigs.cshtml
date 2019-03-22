@@ -3,12 +3,12 @@
     ViewBag.Title = "Home Page";
 }
 <h1>@Model.Heading</h1>
-@using (Html.BeginForm("Search", "Gigs"))
+@using (Html.BeginForm("Search", "Gigs", null, FormMethod.Post, new { @id = "js-search"}))
 {
     <div class="form-group">
         <div id="searchGigs" class="input-group">
             @Html.TextBoxFor(m => m.SearchTerm, new {@class = "form-control", placeholder = "Search by Artist, Genre or Location..." })
-            <span class="input-group-addon">
+            <span onclick="$('#js-search').submit()" class="input-group-addon">
                 <i class="glyphicon glyphicon-search"></i>
             </span>
         </div>
@@ -28,7 +28,8 @@
             </div>
             <div class="details">
                 <span class="artist">
-                    @Html.ActionLink(gig.Artist.Name, "Details", "Gigs", new { gigId = gig.Id}, null)
+                    @Html.ActionLink(gig.Artist.Name, "Details", "Gigs", new { gigId = gig.Id }, null)
+                    at @gig.Venue
                     @if (gig.IsCanceled)
                     {
                         <span class="label label-warning">Canceled</span>

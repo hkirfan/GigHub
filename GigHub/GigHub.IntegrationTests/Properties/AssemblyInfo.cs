@@ -1,18 +1,18 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("GigHub.Tests")]
+[assembly: AssemblyTitle("GigHub.IntegrationTests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GigHub.Tests")]
+[assembly: AssemblyProduct("GigHub.IntegrationTests")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 [assembly: ComVisible(false)]
 
-[assembly: Guid("d4ced8ff-3c11-40a5-94d9-4ad37cb60ffd")]
+[assembly: Guid("9a845019-e95d-489e-b825-ea6bca4a5cf8")]
 
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
